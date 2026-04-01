@@ -97,8 +97,8 @@ Dùng Google Search Operators để tìm bài đăng công khai:
 
 ```
 # Facebook Groups public posts
-site:facebook.com "cần làm website" 2024 OR 2025
-site:facebook.com "tìm người làm chatbot"
+site:facebook.com "cần làm website" "[Năm hiện tại]"
+site:facebook.com "tìm người làm chatbot" after:[Năm ngoái]-12-31
 
 # LinkedIn
 site:linkedin.com "looking for web developer" Vietnam
@@ -116,10 +116,10 @@ site:webtretho.com "cần website"
 ```
 
 **Query mẫu để chạy:**
-- `"cần làm website" site:facebook.com`
-- `"cần chatbot" site:facebook.com -site:facebook.com/ads`
-- `"cần quản lý fanpage" 2024 site:facebook.com`
-- `site:reddit.com/r/forhire "chatbot" OR "email marketing"`
+- `"cần làm website" "[Năm hiện tại]" site:facebook.com`
+- `"cần chatbot" site:facebook.com -site:facebook.com/ads after:[Năm ngoái]-12-31`
+- `"cần quản lý fanpage" "[Năm hiện tại]" site:facebook.com`
+- `site:reddit.com/r/forhire "chatbot" OR "email marketing" after:[Năm ngoái]-12-31`
 - `site:linkedin.com "hiring" "web developer" Vietnam`
 - `"cần làm web" OR "cần chatbot" site:vbiz.vn`
 
@@ -187,9 +187,15 @@ URL tìm kiếm: `https://twitter.com/search?q=[query]&f=live`
 
 Khi chạy tìm kiếm, thực hiện **tuần tự** các query:
 
-1. Chạy 3–5 queries Google với `web_search`
-2. Với mỗi kết quả hứa hẹn, dùng `web_fetch` để lấy nội dung chi tiết
-3. Tổng hợp kết quả theo template bên dưới
+**LƯU Ý QUAN TRỌNG VỀ THỜI GIAN:**
+- **BẮT BUỘC:** Kiểm tra thời gian hiện tại của bạn để biết năm/tháng hiện tại.
+- Bổ sung năm hiện tại vào cú pháp tìm kiếm (VD: `"2026"`) hoặc dùng bộ lọc thời gian của Google (VD: `after:2025-12-31`).
+- **TUYỆT ĐỐI KHÔNG** thu thập và trả về các bài đăng (lead) từ các năm trước hoặc quá cũ (trên 3 tháng), ngoại trừ khi user yêu cầu tìm dữ liệu lịch sử.
+
+1. Chạy 3–5 queries Google với `web_search` (áp dụng các quy tắc thời gian ở trên).
+2. Khi có kết quả, phải nhìn vào ngày đăng (date) của từng bài. Nếu bài quá 3 tháng, MẶC ĐỊNH LOẠI BỎ.
+3. Với mỗi kết quả hứa hẹn và còn mới, dùng `web_fetch` để lấy nội dung chi tiết.
+4. Tổng hợp kết quả theo template bên dưới.
 
 **Số lượng queries khuyến nghị:**
 - Tìm nhanh: 3–5 queries, 1 nền tảng
