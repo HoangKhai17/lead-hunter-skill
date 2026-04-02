@@ -243,15 +243,20 @@ https://www.reddit.com/r/hiring/search/?q=AI+automation&sort=new
 
 3. **Quy trình**:
    1. Tính `[FILTER_DATE]` và `[CURRENT_YEAR]` từ ngày hôm nay
-   2. Chạy 3–5 queries Google với `web_search` (dùng bộ lọc động)
+   2. Chạy queries Google với `web_search` (dùng bộ lọc động) — **chạy đủ queries cho đến khi đạt tối thiểu 20 leads**
    3. Kiểm tra ngày đăng — quá 3 tháng: LOẠI BỎ
    4. Với kết quả mới và hứa hẹn: dùng `web_fetch` lấy nội dung đầy đủ
    5. Quét contact info, tổng hợp theo template output
+   6. **Nếu chưa đủ 20 leads → mở rộng sang nền tảng khác, thêm từ khóa mới, tiếp tục tìm cho đến khi đủ**
 
-**Số lượng queries khuyến nghị:**
-- Tìm nhanh: 3–5 queries, 1–2 nền tảng
-- Tìm đầy đủ: 10–15 queries, 3–5 nền tảng
-- Nghiên cứu thị trường: 20+ queries, tất cả nền tảng
+4. **Link bài đăng là BẮT BUỘC**: Mỗi lead PHẢI có link trực tiếp đến bài đăng / post / comment / thread nơi khách hàng thể hiện nhu cầu. Không có link → KHÔNG được tính là lead hợp lệ.
+
+**Số lượng queries bắt buộc theo mục tiêu:**
+- Tìm nhanh (mặc định): **tối thiểu 8–10 queries**, đủ **20 leads** có link
+- Tìm đầy đủ: 15–20 queries, 3–5 nền tảng, đủ **20+ leads**
+- Nghiên cứu thị trường: 25+ queries, tất cả nền tảng, 30+ leads
+
+> **Quy tắc bất biến**: Dù user không nói rõ, kết quả cuối LUÔN LUÔN phải có ít nhất 20 leads hợp lệ, mỗi lead có link bài đăng gốc.
 
 ---
 
@@ -284,8 +289,9 @@ https://www.reddit.com/r/hiring/search/?q=AI+automation&sort=new
 ## 📊 Tổng quan kết quả
 - Ngày tìm kiếm: [ngày hôm nay - tự động lấy]
 - Khoảng thời gian lọc: [ngày hiện tại - 90 ngày] đến nay
-- Tổng leads tìm được: X
+- Tổng leads tìm được: X (tối thiểu 20 — nếu chưa đủ, tiếp tục tìm)
 - Hot leads 🔥: X | Warm leads ⚡: X | Cold leads ❄️: X
+- Leads có link bài đăng: X/X (phải = tổng leads)
 - Nền tảng: [danh sách]
 - Dịch vụ: [danh sách]
 - Từ khóa đã dùng: [danh sách]
@@ -299,7 +305,7 @@ https://www.reddit.com/r/hiring/search/?q=AI+automation&sort=new
 - **Dịch vụ**: Agentic AI / AI Automation / Website / Chatbot / Email marketing / Quản lý fanpage / Thuê đội IT / ...
 - **Ngân sách**: [nếu có] / Chưa rõ
 - **Ngày đăng**: [ngày cụ thể]
-- **Link bài đăng**: [URL]
+- 🔗 **Link bài đăng**: [URL — BẮT BUỘC, không có link = không hợp lệ]
 - 📞 **SĐT**: [số điện thoại — bỏ trống nếu không có]
 - 📧 **Email**: [email — bỏ trống nếu không có]
 - 💬 **Zalo/Liên hệ khác**: [nếu có]
@@ -366,6 +372,8 @@ Bạn có muốn mình tư vấn miễn phí và gửi báo giá không?
 - **Ưu tiên leads mới < 7 ngày** — nhu cầu cũ hơn có thể đã được đáp ứng
 - **SĐT/email = +3 điểm** — lead có contact info phải được ưu tiên tiếp cận trước
 - **Agentic AI là xu hướng nóng** — leads nhu cầu AI automation thường có budget cao hơn
+- **BẮT BUỘC tối thiểu 20 leads** — nếu chưa đủ phải mở rộng từ khóa, nền tảng, tiếp tục tìm
+- **BẮT BUỘC link bài đăng** — mỗi lead phải có URL gốc nơi khách hàng đăng nhu cầu; lead không có link không được đưa vào kết quả
 - Không scrape dữ liệu cá nhân — chỉ tổng hợp thông tin được đăng công khai
 - Google cache có thể chậm 1–3 ngày → ghi rõ ngày tìm kiếm trong output
 
